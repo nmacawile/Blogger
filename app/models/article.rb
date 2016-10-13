@@ -2,6 +2,10 @@ class Article < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
+
+	has_attached_file :image, styles: { medium: "300x300>", thumb: "50x50#" }
+
+	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 	
 	#without the custom to_s method in models/tag.rb
 	#def tag_list
@@ -14,6 +18,7 @@ class Article < ApplicationRecord
 	def tag_list
 	  tags.join(", ")
 	end
+	#
 
 	def tag_list=(tags_string)
 	  tag_names = tags_string.split(",").collect{|s| s.strip.downcase}.uniq

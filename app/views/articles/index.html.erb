@@ -2,8 +2,15 @@
 
 <ul id="articles">
   <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article) %>
+    <li style="display: table">
+    	<div class="thumbnail" style="display: table-cell; height: 50px; width: 50px;">
+		    <% if article.image.exists? %>
+		        <%= link_to image_tag(article.image.url(:thumb)), article_path(article) %>
+		    <% end %>
+	    </div>
+	    <div class="article_link" style="display: table-cell; width: 990px; vertical-align: middle; padding-left: 10px">	   
+      		<%= link_to article.title, article_path(article) %>
+      	</div>
     </li>
   <% end %>
 </ul>

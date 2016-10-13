@@ -1,0 +1,12 @@
+.thumbnail {
+display: table-cell; 
+height: 50px; 
+width: 50px;
+}
+
+.article_link {
+display: table-cell; 
+width: 990px; 
+vertical-align: middle; 
+padding-left: 10px;
+}
