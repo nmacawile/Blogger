@@ -1,0 +1,5 @@
+<h1>Comments for <%= @article.title %></h1>
+
+<%= render partial: 'articles/comment', collection: @comments %>
+<br>
+<%= link_to "<< Back to Article", article_path(@article) %>

@@ -10,3 +10,7 @@ width: 990px;
 vertical-align: middle; 
 padding-left: 10px;
 }
+
+.author_info > td {
+ padding-right: 5px
+}

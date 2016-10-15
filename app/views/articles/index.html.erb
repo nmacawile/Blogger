@@ -3,16 +3,17 @@
 <ul id="articles">
   <% @articles.each do |article| %>
     <li style="display: table">
-    	<div class="thumbnail" style="display: table-cell; height: 50px; width: 50px;">
+    	<div class="thumbnail">
 		    <% if article.image.exists? %>
 		        <%= link_to image_tag(article.image.url(:thumb)), article_path(article) %>
 		    <% end %>
 	    </div>
-	    <div class="article_link" style="display: table-cell; width: 990px; vertical-align: middle; padding-left: 10px">	   
+	    <div class="article_link">	   
       		<%= link_to article.title, article_path(article) %>
       	</div>
     </li>
   <% end %>
 </ul>
-
-<%= link_to 'New Article', new_article_path, class: 'new_article' %>
+<% if logged_in? %>
+  <%= link_to 'New Article', new_article_path, class: 'new_article' %>
+<% end %>

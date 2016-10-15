@@ -50,3 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # paperclip, a library that manages file attachments and uploading
 gem "paperclip"
 
+# Sorcery is a lightweight and straightforward authentication service gem
+gem 'sorcery'
+
