@@ -9,20 +9,32 @@
   </head>
 
   <body>
-	<p class="flash"><%= flash.notice %></p>
-
-    	<%= yield %>
-	<hr>
-      	
-	<h6>
-		<% if logged_in? %>
-		  <%= "Logged in as #{current_user.email}" %>
-		  <%= link_to "(logout)", logout_path %>
-		  <%= link_to "(Authors List)", authors_path %>
-		<% else %>
-		  <%= link_to "(login)", login_path %>
-		<% end %>
+    <div id="container">
+    	<p class="flash"><%= flash.notice %></p>
+    	<%= yield %>  	
       
-      	</h6>
+    	<hr>
+          	
+    	<h6>
+    		<% if logged_in? %>
+    		  <%= "Logged in as #{current_user.email}" %>
+    		  <%= link_to "(logout)", logout_path %>
+    		  <%= link_to "(Authors List)", authors_path %>
+    		<% else %>
+    		  <%= link_to "(login)", login_path %>
+    		<% end %>
+          
+    	</h6>
+    </div>
+    <div id="navbar">
+      <ul><h4>Most Popular</h4>
+        <% @top_articles.each do |a|%> 
+          <li>
+            <%= link_to a.title, article_path(a) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    
   </body>
 </html>

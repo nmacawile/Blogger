@@ -12,7 +12,7 @@
 </p>
 <p>
 	<% if @article.image.exists? %>
-		<%= image_tag @article.image.url %>
+		<%= image_tag @article.image.url(:attached) %>
 	<% end %>	
 </p>
 <p style='white-space: pre-line'><%= @article.body %></p>

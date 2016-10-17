@@ -3,7 +3,7 @@ class Article < ApplicationRecord
 	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
 
-	has_attached_file :image, styles: { medium: "300x300>", thumb: "50x50#" }
+	has_attached_file :image, styles: { attached: "720>x405", medium: "300x300>", thumb: "50x50#" }
 
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 	
