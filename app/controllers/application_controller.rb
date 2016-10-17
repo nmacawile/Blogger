@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 	before_filter :get_top_articles
 
 	def get_top_articles
-	  @top_articles = Article.all.order('created_at DESC').limit(5)
+	  @top_articles = Article.all.order('hits DESC').limit(5)
 	end
 end
