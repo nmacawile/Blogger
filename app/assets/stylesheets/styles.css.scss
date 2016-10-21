@@ -12,7 +12,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  margin: 30px auto;
+  margin: 50px auto;
 }
 
 a {
@@ -46,6 +46,7 @@ a {
 #navbar {
   position: absolute;
   border: 1px solid black;
+  border-radius: 6px;
   width: 280px;
   height: 280px;
   right: 10px;

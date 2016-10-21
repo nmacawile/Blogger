@@ -27,7 +27,7 @@
     	</h6>
     </div>
     <div id="navbar">
-      <ul><h4>Most Popular</h4>
+      <ul><h3>Most Popular</h3>
         <% @top_articles.each do |a|%> 
           <li>
             <%= link_to a.title, article_path(a) %>
@@ -35,7 +35,20 @@
           </li>
         <% end %>
       </ul>
+
+      <br>
+
+      <ul><h3>Older Posts</h3>
+        <% @months.each do |m|%> 
+          <li>
+            
+            <%= link_to m.strftime('%B %Y'), articles_path %>
+          </li>
+        <% end %>
+      </ul>
     </div>
+
+
     
   </body>
 </html>

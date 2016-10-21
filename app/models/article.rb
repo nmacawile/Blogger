@@ -26,5 +26,9 @@ class Article < ApplicationRecord
 	  self.tags = new_or_found_tags
 	end
 
+	def increment_hits
+	  self.increment!(:hits)
+	end
+
 end
 
