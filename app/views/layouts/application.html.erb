@@ -27,6 +27,18 @@
     	</h6>
     </div>
     <div id="navbar">
+      <ul>
+        <h3>Navigation</h3>
+        <li><%= link_to 'Home', articles_path%></li>
+        <li><%= link_to 'Tags', tags_path%></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Authors', authors_path%></li>
+          <li><%= link_to 'Logout', logout_path%></li>
+        <% else %>
+          <li><%= link_to 'Login', login_path%></li>
+        <% end %>
+      </ul>
+      <br>
       <ul><h3>Most Popular</h3>
         <% @top_articles.each do |a|%> 
           <li>
@@ -42,7 +54,8 @@
         <% @months.each do |m|%> 
           <li>
             
-            <%= link_to m.strftime('%B %Y'), articles_path %>
+            <%= link_to m.strftime('%B'), month_path(m.strftime('%Y'),m.strftime('%m')) %> 
+            <%= link_to m.strftime('%Y'), year_path(m.strftime('%Y')) %>
           </li>
         <% end %>
       </ul>

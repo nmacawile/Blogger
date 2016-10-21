@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
 	include ArticlesHelper
 
-	before_filter :require_login, except: [:show, :index]
+	before_filter :require_login, except: [:show, :index, :month, :year]
 
 	def index
-		@articles = Article.all
+		@articles = Article.order('created_at DESC').all
 	end
 
 	def create
@@ -40,7 +40,17 @@ class ArticlesController < ApplicationController
 
 	  redirect_to article_path(@article)
 	end
-	
+
+	def year
+		@year = params[:year]
+		@articles = Article.where("cast(strftime('%Y', created_at) as int) = ?",params[:year])
+	end
+
+	def month
+		@monthyear = Date::MONTHNAMES[params[:month].to_i] + " " + params[:year]
+		@articles = Article.where("cast(strftime('%Y', created_at) as int) = ? and cast(strftime('%m', created_at) as int) = ?", params[:year], params[:month])
+	end
+
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy

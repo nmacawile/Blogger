@@ -1,0 +1,20 @@
+<h1>Articles published in <%= @year %></h1>
+<ul>
+<% (3..12).step(3) do |n| %>
+	<li>
+		<% (n-2..n).each do |m| %>
+			<div style='display: inline-block; width: 100px;'>
+				<%= link_to Date::MONTHNAMES[m], month_path(@year,m) %>
+			</div>
+		<% end %>
+	</li>
+<% end %>
+</ul>
+
+<br>
+<br>
+<h3> <%= pluralize(@articles.size, "result") %> found.</h3>
+<br>
+
+<%= render partial: 'articles' %>
+

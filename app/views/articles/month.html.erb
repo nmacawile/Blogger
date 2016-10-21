@@ -1,0 +1,4 @@
+<h1>Articles published in <%= @monthyear %></h1>
+<h3> <%= pluralize(@articles.size, "result") %> found.</h3>
+<br>
+<%= render partial: 'articles' %>

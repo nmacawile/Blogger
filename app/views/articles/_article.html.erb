@@ -1,0 +1,10 @@
+<li style="display: table">
+<div class="thumbnail">
+	    <% if article.image.exists? %>
+	        <%= link_to image_tag(article.image.url(:thumb)), article_path(article) %>
+	    <% end %>
+    </div>
+    <div class="article_link">	   
+	<%= link_to article.title, article_path(article) %>
+</div>
+</li>
