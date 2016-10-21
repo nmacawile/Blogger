@@ -43,7 +43,7 @@
         <% @top_articles.each do |a|%> 
           <li>
             <%= link_to a.title, article_path(a) %>
-            (<%= a.hits %> views)
+            (<%= pluralize(a.hits, "view") %>)
           </li>
         <% end %>
       </ul>

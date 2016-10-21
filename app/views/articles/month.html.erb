@@ -2,3 +2,5 @@
 <h3> <%= pluralize(@articles.size, "result") %> found.</h3>
 <br>
 <%= render partial: 'articles' %>
+<br>
+<h3><%= link_to '('+@year+')', year_path(@year) %></h3>

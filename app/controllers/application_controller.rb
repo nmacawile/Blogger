@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-	before_filter :get_top_articles, :past_six_months
+	before_action :get_top_articles, :past_six_months
 
 	def get_top_articles
 	  @top_articles = Article.all.order('hits DESC').limit(3)

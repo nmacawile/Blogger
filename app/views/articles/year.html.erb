@@ -1,4 +1,9 @@
 <h1>Articles published in <%= @year %></h1>
+<h2><% prev = @year.to_i - 1 %>
+<% nxt = @year.to_i + 1 %>
+<%= link_to '<<'+prev.to_s, year_path(prev) %>
+<%= @year %>
+<%= link_to nxt.to_s+'>>', year_path(nxt) %></h2>
 <ul>
 <% (3..12).step(3) do |n| %>
 	<li>
