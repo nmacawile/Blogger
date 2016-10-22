@@ -70,4 +70,11 @@ class ArticlesController < ApplicationController
 		redirect_to articles_path
 		
 	end
+
+	def feed
+	    @articles = Article.all
+	    respond_to do |format|
+	      format.rss { render :layout => false }
+	    end
+  	end
 end

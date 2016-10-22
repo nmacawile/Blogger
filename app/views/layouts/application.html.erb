@@ -37,6 +37,7 @@
         <% else %>
           <li><%= link_to 'Login', login_path%></li>
         <% end %>
+        <%= link_to 'RSS feed', rss_path(format: :rss) %>
       </ul>
       <br>
       <ul><h3>Most Popular</h3>
