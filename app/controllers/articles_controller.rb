@@ -33,12 +33,18 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-	  @article = Article.find(params[:id])
-	  @article.update(article_params)
+		@article = Article.find(params[:id])
 
-  	  flash.notice = "Article '#{@article.title}' Updated!"
+		if(params[:id].to_i >=24 and params[:id].to_i <=32)
+			flash.notice = "Sorry but you can't edit this article. You are free to create a new article to test the edit function."
+		else
+		  
+		  @article.update(article_params)
 
-	  redirect_to article_path(@article)
+	  	  flash.notice = "Article '#{@article.title}' Updated!"
+	  	end
+		  redirect_to article_path(@article)
+		 
 	end
 
 	def year
@@ -54,10 +60,14 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find(params[:id])
-		@article.destroy
-
-		flash.notice = "Article '#{@article.title}' Deleted!"
+		if(params[:id].to_i >=24 and params[:id].to_i <=32)
+			flash.notice = "Sorry but you can't delete this article. You are free to create a new article to test the delete/destroy function."
+		else		
+			@article.destroy
+			flash.notice = "Article '#{@article.title}' Deleted!"			
+		end
 
 		redirect_to articles_path
+		
 	end
 end
