@@ -7,8 +7,8 @@ class AuthorsController < ApplicationController
     @authors = Author.all
   end
 
-  before_filter :zero_authors_or_authenticated, only: [:new, :create]
-  before_filter :require_login, except: [:new, :create]
+  before_action :zero_authors_or_authenticated, only: [:new, :create]
+  before_action :require_login, except: [:new, :create]
 
 
   def zero_authors_or_authenticated
