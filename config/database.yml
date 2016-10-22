@@ -30,8 +30,8 @@ development:
   host: localhost
   pool: 5
   timeout: 5000
-#  username: mac
-#  password: 110190
+  username: mac
+  password: 110190
 
 test:
   adapter: postgresql
