@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	include ArticlesHelper
 
-	before_action :require_login, except: [:show, :index, :month, :year]
+	before_action :require_login, except: [:show, :index, :month, :year, :feed]
 
 	def index
 		@articles = Article.order('created_at DESC').all
