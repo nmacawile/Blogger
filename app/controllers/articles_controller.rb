@@ -49,13 +49,19 @@ class ArticlesController < ApplicationController
 
 	def year
 		@year = params[:year]
-		@articles = Article.where("cast(strftime('%Y', created_at) as int) = ?",params[:year])
+		#sqlite3
+		#@articles = Article.where("cast(strftime('%Y', created_at) as int) = ?",params[:year])
+		#postgres
+		@articles = Article.where("extract(year from created_at) = ?",params[:year])
 	end
 
 	def month
 		@monthyear = Date::MONTHNAMES[params[:month].to_i] + " " + params[:year]
 		@year = params[:year]
-		@articles = Article.where("cast(strftime('%Y', created_at) as int) = ? and cast(strftime('%m', created_at) as int) = ?", params[:year], params[:month])
+		#sqlite3
+		#@articles = Article.where("cast(strftime('%Y', created_at) as int) = ? and cast(strftime('%m', created_at) as int) = ?", params[:year], params[:month])
+		#postgres
+		@articles = Article.where("extract(year from created_at) = ? and extract(month from created_at) = ?", params[:year], params[:month])
 	end
 
 	def destroy
