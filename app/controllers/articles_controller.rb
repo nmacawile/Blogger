@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 
-		if(params[:id].to_i >=24 and params[:id].to_i <=32)
+		if(@article.protect == true)
 			flash.notice = "Sorry but you can't edit this article. You are free to create a new article to test the edit function."
 		else
 		  
@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find(params[:id])
-		if(params[:id].to_i >=24 and params[:id].to_i <=32)
+		if(@article.protect == true)
 			flash.notice = "Sorry but you can't delete this article. You are free to create a new article to test the delete/destroy function."
 		else		
 			@article.destroy

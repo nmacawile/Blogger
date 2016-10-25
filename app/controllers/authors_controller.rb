@@ -51,7 +51,7 @@ class AuthorsController < ApplicationController
   # PATCH/PUT /authors/1
   # PATCH/PUT /authors/1.json
   def update
-	unless (@author.id == 3)
+	unless (@author.protect == true)
 	    respond_to do |format|
 	      if @author.update(author_params)
 		format.html { redirect_to @author, notice: 'Author was successfully updated.' }
@@ -73,7 +73,7 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
-    unless (@author.id == 3)
+    unless (@author.protect == true)
 	    @author.destroy
 	    respond_to do |format|
 	      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
