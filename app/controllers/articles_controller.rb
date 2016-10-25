@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 
 		if(@article.protect == true)
-			flash.notice = "Sorry but you can't edit this article. You are free to create a new article to test the edit function."
+			flash.notice = "Sorry, but this article is protected. You can create a new article to test the edit function."
 		else
 		  
 		  @article.update(article_params)
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.find(params[:id])
 		if(@article.protect == true)
-			flash.notice = "Sorry but you can't delete this article. You are free to create a new article to test the delete/destroy function."
+			flash.notice = "Sorry, but this article is protected. You can create a new article to test the delete function."
 		else		
 			@article.destroy
 			flash.notice = "Article '#{@article.title}' Deleted!"			

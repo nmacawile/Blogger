@@ -63,7 +63,7 @@ class AuthorsController < ApplicationController
 	    end
 	else
 	    respond_to do |format|
-	      format.html { redirect_to authors_url, notice: "Author '#{@author.username}' cannot be updated." }
+	      format.html { redirect_to authors_url, notice: "Author '#{@author.username}' is protected; it cannot be updated." }
 	      format.json { head :no_content }
 	    end
 	end
@@ -81,7 +81,7 @@ class AuthorsController < ApplicationController
 	    end
     else
 	    respond_to do |format|
-	      format.html { redirect_to authors_url, notice: "Author '#{@author.username}' cannot be deleted." }
+	      format.html { redirect_to authors_url, notice: "Author '#{@author.username}' is protected; it cannot be deleted." }
 	      format.json { head :no_content }
 	    end	
     end
